@@ -27,7 +27,7 @@ aside.app-sidebar footer button {
 
   cursor: pointer;
 
-  transition: background-color 0.2s;
+  transition: 250ms;
 
   display: flex;
   justify-content: center;
@@ -37,4 +37,5 @@ aside.app-sidebar footer button {
 aside.app-sidebar footer a:hover,
 aside.app-sidebar footer button:hover {
   background: #17d6eb;
+  transform: translateY(-.3rem)
 }

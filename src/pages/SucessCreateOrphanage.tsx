@@ -12,7 +12,7 @@ export default function(){
     }
 
     return (
-        <div className="container">
+        <div className="container-sucess">
             <div>
                 <h1 id="information-title">Ebaaa!</h1>
                 <p>
