@@ -16,7 +16,7 @@ export default function SucessDeletedOrphanage() {
                     <button>Voltar ao mapa</button>
                 </Link>
             </div>
-            <img src={SucessDelete}/>
+            <img src={SucessDelete} alt="SucessDelete"/>
         </div>
     )
 }

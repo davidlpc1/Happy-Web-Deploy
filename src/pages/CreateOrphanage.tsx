@@ -8,7 +8,7 @@ import { FiPlus } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 
 import mapIcon from "../utils/mapIcon";
-import cancelImage from '../images/x-circle.svg'
+// import cancelImage from '../images/x-circle.svg'
 
 import '../styles/pages/create-orphanage.css';
 import api from "../services/api";
@@ -37,9 +37,9 @@ export default function CreateOrphanage() {
     })
   }
 
-  function deleteImage(){
+  // function deleteImage(){
     
-  }
+  // }
 
   function handleSelectImages(event:ChangeEvent<HTMLInputElement>){
     if(!event.target.files ){
