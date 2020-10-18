@@ -39,6 +39,23 @@
     font-weight: 800;
 }
 
+#page-map .btn-change-theme{
+    background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
+
+    padding: 10px;
+
+    border: 1px solid #29B6D1;
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: 300ms;
+}
+
+#page-map .btn-change-theme:hover{
+    padding-bottom: 20px;
+}
+
 #page-map .leaflet-container{
     z-index: 5;
 }

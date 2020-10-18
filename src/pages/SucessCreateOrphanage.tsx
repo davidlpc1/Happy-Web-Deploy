@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import ImageSucess from '../images/sucess-create.svg'
 
 import '../styles/pages/sucess-create.css'

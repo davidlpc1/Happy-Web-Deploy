@@ -173,3 +173,18 @@
 .orphanage-details .orphanage-details-content button.contact-button:hover {
   background: #36CF82;
 }
+
+.delete-orphanage {
+  display:flex;
+  justify-content: center;
+}
+
+.delete-orphanage-icon{
+  margin-top: 36px;
+  cursor: pointer;
+  transition: 300ms
+}
+
+.delete-orphanage-icon:hover{
+  transform:translateY(-.4rem);
+}

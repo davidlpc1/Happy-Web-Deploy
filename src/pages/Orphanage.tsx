@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 // import { FaWhatsapp } from "react-icons/fa";
-import { FiClock, FiInfo} from "react-icons/fi";
+import { FiClock, FiInfo , FiTrash2} from "react-icons/fi";
 import { Map, Marker, TileLayer } from "react-leaflet";
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 import Sidebar from "../components/Sidebar";
 
@@ -33,6 +33,7 @@ export default function Orphanage() {
     const params = useParams<OrphanageParams>();
     const [ orphanage , setOrphanage] = useState<Orphanage>()
     const [activeImageIndex, setActiveImageIndex] = useState(0)
+    const history = useHistory()
 
     useEffect(() => {
         api.get(`orphanages/${params.id}`).then(response => {
@@ -42,6 +43,12 @@ export default function Orphanage() {
 
     if(!orphanage){
       return <p>Carregando..</p>
+    }
+
+    async function deleteOrphanage(){
+      await api.delete(`orphanages/${params.id}`)
+
+      history.push('/orphanages/delete/sucess')
     }
 
   return (
@@ -132,6 +139,9 @@ export default function Orphanage() {
               Entrar em contato
             </button>
             */}
+              <div className="delete-orphanage">
+                <FiTrash2 onClick={deleteOrphanage} size={90} className="delete-orphanage-icon" color="#FF669D"/>
+              </div>
           </div>
         </div>
       </main>

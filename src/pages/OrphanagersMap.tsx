@@ -17,12 +17,22 @@ interface Orphanage {
 
 function OrphanagersMap(){
     const [ orphanages , setOrphanages] = useState<Orphanage[]>([])
+    const [theme,setTheme] = useState('Dark');
+    const [urlMap,setUrlMap] = useState(`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`)
     //Assim que o componente for exibido em tela executará a função apenas uma vez,devido o vetor vazio
     useEffect(() => {
         api.get('orphanages').then(response => {
             setOrphanages(response.data)
         })
     },[])
+    
+    useEffect(() => {
+        if(theme === 'Light'){
+            setUrlMap(`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`)
+        }else{
+            setUrlMap(`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`)
+        }
+    },[ theme ])
     
 
     return (
@@ -43,13 +53,22 @@ function OrphanagersMap(){
                 </footer>
             </aside>
 
+            <button className="btn-change-theme" onClick={() => {
+                if(theme === 'Light'){
+                    setTheme('Dark')
+                }
+                else{
+                    setTheme('Light')
+                }
+            }}>{theme}</button>
+
             <Map 
                 center={[-19.3779046,-40.0530468]}
                 zoom={15}
                 style={{ width: '100%', height: '100%'}}
             >
 
-                <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`} />
+                <TileLayer url={urlMap} />
 
                 {orphanages.map(orphanage => {
                     return (

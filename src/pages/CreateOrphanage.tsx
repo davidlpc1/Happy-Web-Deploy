@@ -8,6 +8,8 @@ import { FiPlus } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
 
 import mapIcon from "../utils/mapIcon";
+import cancelImage from '../images/x-circle.svg'
+
 import '../styles/pages/create-orphanage.css';
 import api from "../services/api";
 
@@ -33,6 +35,10 @@ export default function CreateOrphanage() {
       latitude:lat,
       longitude:lng
     })
+  }
+
+  function deleteImage(){
+    
   }
 
   function handleSelectImages(event:ChangeEvent<HTMLInputElement>){
@@ -130,8 +136,14 @@ export default function CreateOrphanage() {
 
               <div className="images-container">
                 {previewImages.map(image => {
+                  console.log(image)
                   return (
-                    <img key={image} src={image} alt={name} />
+                    <>
+                      <img id="images-orphanage" key={image} src={image} alt={name} />
+                      {/* <button onClick={deleteImage} id="cancel_image" key={image}>
+                        <img id="cancel_image_svg" src={cancelImage} key={image} alt="Cancelar"/>
+                      </button> */}
+                    </>
                   )
                 })}
 
@@ -197,5 +209,3 @@ export default function CreateOrphanage() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;
