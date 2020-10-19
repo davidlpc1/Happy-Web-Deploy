@@ -15,9 +15,16 @@ interface Orphanage {
     name:string
 }
 
+interface Error {
+    code:string,
+    message:string
+}
+
 function OrphanagersMap(){
     const [ orphanages , setOrphanages] = useState<Orphanage[]>([])
     const [theme,setTheme] = useState('Dark');
+    const [latitude,setLatitude] = useState(-19.3779046)
+    const [longitude,setLongitude] = useState(-40.0530468)
     const [urlMap,setUrlMap] = useState(`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`)
     //Assim que o componente for exibido em tela executará a função apenas uma vez,devido o vetor vazio
     useEffect(() => {
@@ -25,6 +32,20 @@ function OrphanagersMap(){
             setOrphanages(response.data)
         })
     },[])
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const {latitude:latitudeUser,longitude:longitudeUser} = position.coords
+
+            setLatitude(latitudeUser);
+            setLongitude(longitudeUser)
+        },(err) => {
+            console.error('ERROR(' + err.code + '): ' + err.message)
+        },
+        {
+            enableHighAccuracy: true,
+        }
+    )},[])
     
     useEffect(() => {
         if(theme === 'Light'){
@@ -63,7 +84,7 @@ function OrphanagersMap(){
             }}>{theme}</button>
 
             <Map 
-                center={[-19.3779046,-40.0530468]}
+                center={[latitude,longitude]}
                 zoom={15}
                 style={{ width: '100%', height: '100%'}}
             >
