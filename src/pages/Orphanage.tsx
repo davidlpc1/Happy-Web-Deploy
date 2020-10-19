@@ -13,6 +13,8 @@ import LoadingIcon from '../images/loading.svg';
 
 import '../styles/pages/orphanage.css';
 
+import ButtonMap from '../components/ButtonBackToMap'
+
 interface Orphanage {
   latitude:number,
   longitude:number,
@@ -49,9 +51,7 @@ export default function Orphanage() {
         <div className="container-error">
           <h1>Esse Orfanato não foi encontrado</h1>
           <img src={LoadingIcon} alt="Icone de Carregamento"/>
-          <button onClick={ () => {
-            history.push('/app')
-          }}>Voltar ao mapa</button>
+          <ButtonMap backgroundColor="#D6487B" backgroundColorHover="#d15b86" />
         </div>
       )
     }

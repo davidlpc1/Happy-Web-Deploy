@@ -1,15 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import ImageSucess from '../images/sucess-create.svg'
+
+import ButtonMap from '../components/ButtonBackToMap'
 
 import '../styles/pages/sucess-create.css'
 
 export default function(){
-    const history = useHistory()
-
-    function handleNavigateToMapPage(){
-        history.push('/app')
-    }
 
     return (
         <div className="container-sucess">
@@ -20,7 +16,7 @@ export default function(){
                     ao administrador para ser aprovado. <br />
                     Agora é só esperar 
                 </p>
-                <button id="btn-map" onClick={handleNavigateToMapPage}> Voltar ao Mapa </button>
+                <ButtonMap backgroundColor="#31B272" backgroundColorHover=" #3BD689" />
             </div>
             <img src={ImageSucess} alt="Tudo deu certo"/>
         </div>

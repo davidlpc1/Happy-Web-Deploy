@@ -23,28 +23,3 @@
     font-weight: 600;
     margin: 1.2rem 0 2rem;
 }
-
-.container .text button{
-    width:243px;
-    height: 64px;
-
-    background-color: #D6487B;
-
-    border:none;
-    border-radius: 20px;
-
-    color: #fff;
-
-    cursor: pointer;
-
-    transition:300ms;
-}
-
-.container .text button:hover {
-    background-color: #bf4571;  
-
-    transform:translateY(-.3rem);
-
-    box-shadow: 5px 5px 20px #D6487B;
-}
-

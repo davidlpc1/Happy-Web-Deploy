@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SucessDelete from '../images/sucess-delete.svg';
 import '../styles/pages/sucess-delete.css';
+
+import ButtonMap from '../components/ButtonBackToMap'
 
 export default function SucessDeletedOrphanage() {
 
@@ -12,9 +13,7 @@ export default function SucessDeletedOrphanage() {
                 <p>
                     Você excluiu o Orfanato
                 </p>
-                <Link to="/">
-                    <button>Voltar ao mapa</button>
-                </Link>
+                <ButtonMap backgroundColor="#D6487B" backgroundColorHover="#bf4571" />
             </div>
             <img src={SucessDelete} alt="SucessDelete"/>
         </div>
