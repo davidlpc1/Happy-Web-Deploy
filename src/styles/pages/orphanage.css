@@ -188,3 +188,46 @@
 .delete-orphanage-icon:hover{
   transform:translateY(-.4rem);
 }
+
+.container-error {
+  height:100vh;
+  width:100vw;
+
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+
+  gap:3rem;
+
+  background: #fa5893;
+}
+
+.container-error h1{
+  font-weight: 800;
+  font-size: 3rem;
+  color: whitesmoke;
+}
+
+.container-error button {
+  width:243px;
+  height: 64px;
+
+  border-radius:20px;
+  border:none;
+
+  background-color: #D6487B;
+
+  outline:none;
+
+  cursor: pointer;
+
+  color: #fff;
+
+  transition: 300ms;
+}
+
+.container-error button:hover{
+  transform:translateY(-.4rem);
+  background-color: #d15b86;
+}

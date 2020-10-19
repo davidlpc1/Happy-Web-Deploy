@@ -9,6 +9,8 @@ import Sidebar from "../components/Sidebar";
 import mapIcon from "../utils/mapIcon";
 import api from "../services/api";
 
+import LoadingIcon from '../images/loading.svg';
+
 import '../styles/pages/orphanage.css';
 
 interface Orphanage {
@@ -42,7 +44,16 @@ export default function Orphanage() {
     },[params.id])
 
     if(!orphanage){
-      return <p>Carregando..</p>
+
+      return (
+        <div className="container-error">
+          <h1>Esse Orfanato não foi encontrado</h1>
+          <img src={LoadingIcon} alt="Icone de Carregamento"/>
+          <button onClick={ () => {
+            history.push('/app')
+          }}>Voltar ao mapa</button>
+        </div>
+      )
     }
 
     async function deleteOrphanage(){

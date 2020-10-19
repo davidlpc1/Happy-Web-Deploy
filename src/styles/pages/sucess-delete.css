@@ -7,6 +7,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    text-align: center;
+
+    gap: 3.6rem;
 }
 
 .container .text h1{
@@ -43,3 +47,4 @@
 
     box-shadow: 5px 5px 20px #D6487B;
 }
+
